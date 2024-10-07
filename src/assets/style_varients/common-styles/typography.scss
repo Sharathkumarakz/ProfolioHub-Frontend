@@ -1,0 +1,57 @@
+
+/*----------------------------------------------------------------
+    MAT TYPOGRAPHY
+----------------------------------------------------------------*/
+
+.mat-solid{
+    font-variation-settings: 
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' -25,
+    'opsz' 24
+}
+.mat-solid-bold{
+    font-variation-settings: 
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' -25,
+    'opsz' 24
+}
+.mat-line{
+    font-variation-settings: 
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' -25,
+    'opsz' 24
+}
+.material-symbols-sharp{
+    @apply select-none;
+}
+  
+/*----------------------------------------------------------------
+    BankerData Typography
+----------------------------------------------------------------*/
+
+  .bd-text-md{
+      @apply font-medium text-base;
+  }
+  
+  .bd-text-md-bold{
+      @apply font-bold text-base;
+  }
+  
+  .bd-text-sm{
+      @apply font-medium text-sm;
+  }
+
+
+  @font-face {
+    font-family: "routing_font";
+    src:
+      url("/assets/fonts/check_routing_font/m.eot") format("embedded-opentype"),
+      url("/assets/fonts/check_routing_font/m.woff") format("woff"),
+      url("/assets/fonts/check_routing_font/m.ttf") format("truetype"),
+      url("/assets/fonts/check_routing_font/m.svg") format("svg");
+    font-weight: 400;
+    font-style: normal;
+  }

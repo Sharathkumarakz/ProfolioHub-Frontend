@@ -1,0 +1,17 @@
+
+@mixin exampleMIXIn($padding: 7px 14px, $fontSizes: 14.5px, $bgColor) {
+  color: var(--dark-button-color);
+  background: $bgColor;
+  padding: 10px 20px;
+  font-size: $fontSizes;
+  font-weight: 500;
+  font-family: var(--info-font);
+  line-height: 21px;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}

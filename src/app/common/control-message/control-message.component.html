@@ -1,0 +1,18 @@
+@if (errorMessage) {
+  <small
+    [class]="marginTopOverride"
+    [ngClass]="{
+      'mt-1': isMarginTopEnabled,
+      'mb-2.5': isMarginBottomEnabled,
+      'justify-center': isErrorMessageCentered
+    }"
+    class="text-warning-color flex items-center gap-1 pl-1 text-sm font-normal"
+  >
+    <i class="fa fa-exclamation-circle text-sm text-common-red-color" aria-hidden="true"></i>
+    <p class="font-roboto text-xs font-medium text-common-red-color">
+      {{
+        label ? label : errorMessage ? errorMessage : "This field is required"
+      }}
+    </p>
+  </small>
+}

@@ -1,0 +1,104 @@
+/*----------------------------------------------------------------
+    BankerData Common Buttons
+----------------------------------------------------------------*/
+
+.common-button {
+  * {
+    @apply text-white;
+  }
+  @apply flex h-10 items-center justify-center gap-2 overflow-hidden rounded-[40px] bg-common-brand-color-2 p-3 text-center text-sm font-medium transition-all duration-150 disabled:opacity-70;
+}
+.common-button:hover:not(:disabled) {
+  @apply opacity-95;
+}
+
+.common-light-button {
+  * {
+    @apply text-white;
+  }
+  @apply flex h-9 items-center justify-center gap-2 overflow-hidden rounded-md border border-transparent bg-common-brand-color-2 p-3 text-center text-sm font-medium text-white transition-all duration-150 hover:border-common-border-color disabled:opacity-70;
+}
+
+img {
+  @apply select-none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  background-clip: text;
+  background-color: transparent;
+}
+
+.skelton_loader {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    border-radius: 10px;
+    animation: skeltonLoading 0.9s linear infinite;
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // background: #f6f3f3;
+    background: var(--common-border-color);
+    border-radius: 10px;
+  }
+
+  &.done {
+    &::before,
+    &::after {
+      animation: fadeOutz 0.35s ease-in-out forwards;
+      opacity: 1;
+      pointer-events: none;
+    }
+  }
+
+  @keyframes fadeOutz {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes skeltonLoading {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px transparent inset;
+  -webkit-text-fill-color: var(--common-secondary-font-color);
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px transparent inset; /*your box-shadow*/
+  -webkit-text-fill-color: var(--common-secondary-font-color);
+}

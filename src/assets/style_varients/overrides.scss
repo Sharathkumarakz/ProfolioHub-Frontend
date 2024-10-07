@@ -1,0 +1,161 @@
+.mat-typography,
+body,
+* {
+  font-family: var(--karla);
+}
+
+.bd-common-ng-select-sm {
+  &.ng-select .ng-select-container {
+    .ng-input input {
+      @apply text-common-primary-font-color;
+    }
+    @apply h-[32px] min-h-[32px] rounded-md border-common-border-color bg-common-secondary-bg-color;
+  }
+  .ng-select-container.ng-has-value {
+    @apply max-h-[32px] border border-common-border-color py-1 text-sm text-common-secondary-font-color;
+  }
+  &.ng-dropdown-panel,
+  .ng-dropdown-panel {
+    background: transparent;
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &.ng-option-selected {
+          @apply bg-common-main-bg-color font-bold text-common-primary-font-color;
+        }
+        &.ng-option-marked {
+          @apply bg-common-tertiary-bg-color;
+        }
+        @apply bg-common-secondary-bg-color text-xs font-normal text-common-secondary-font-color;
+      }
+      div {
+        @apply divide-y divide-common-border-color;
+      }
+    }
+    @apply border border-common-border-color;
+  }
+}
+.bd-common-ng-select-md {
+  &.ng-select .ng-select-container {
+    .ng-input input {
+      @apply text-common-primary-font-color;
+    }
+    @apply h-[45px] min-h-[45px] rounded-md border-[1.7px] border-common-border-color bg-common-secondary-bg-color transition-colors duration-150 focus-within:border-common-brand-color-2;
+  }
+  .ng-select-container.ng-has-value {
+    @apply max-h-[45px] border border-common-border-color py-1 text-sm text-common-secondary-font-color;
+  }
+
+  &.ng-dropdown-panel,
+  .ng-dropdown-panel {
+    background: transparent;
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &.ng-option-selected {
+          @apply bg-common-main-bg-color font-bold text-common-primary-font-color;
+        }
+        &.ng-option-marked {
+          @apply bg-common-tertiary-bg-color;
+        }
+        @apply bg-common-secondary-bg-color text-sm font-normal text-common-secondary-font-color;
+      }
+      div {
+        @apply divide-y divide-common-border-color;
+      }
+    }
+    @apply border border-common-border-color;
+  }
+  &.ng-select-multiple {
+    .ng-select-container {
+      .ng-value-container {
+        .ng-input input {
+          @apply text-common-primary-font-color;
+        }
+        .ng-value {
+          span {
+            &:nth-child(1) {
+              border-right: solid 1px var(--common-border-color) !important;
+              @apply hover:bg-common-secondary-bg-color;
+            }
+            @apply bg-common-tertiary-bg-color text-common-primary-font-color;
+          }
+          @apply border border-common-border-color;
+        }
+      }
+      @apply h-fit max-h-fit;
+    }
+  }
+}
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+
+.bd-common-ng-select-phone {
+  &.ng-select .ng-select-container {
+    @apply min-h-[41px] border-[0px] bg-transparent;
+  }
+  &.ng-dropdown-panel,
+  .ng-dropdown-panel {
+    .ng-dropdown-header{
+      @apply min-h-[41px] border-[2px] border-common-border-color rounded-md bg-common-main-bg-color;
+    }
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &.ng-option-selected {
+          @apply bg-common-main-bg-color font-bold text-common-primary-font-color;
+        }
+        &.ng-option-marked {
+          @apply bg-common-tertiary-bg-color;
+        }
+         @apply bg-common-secondary-bg-color text-sm font-normal text-common-secondary-font-color;
+      }
+    }
+    @apply min-w-[321px] border bg-transparent border-common-border-color;
+  }
+  @apply border-[0px] bg-transparent;
+}
+
+
+.bd-common-ng-select-phone-without-boarder {
+  &.ng-select .ng-select-container {
+    @apply min-h-[41px] border-[0px] bg-transparent;
+  }
+  &.ng-dropdown-panel,
+  .ng-dropdown-panel {
+    .ng-dropdown-header{
+      @apply min-h-[41px] rounded-md bg-common-main-bg-color;
+    }
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &.ng-option-selected {
+          @apply bg-common-main-bg-color font-bold text-common-primary-font-color;
+        }
+        &.ng-option-marked {
+          @apply bg-common-tertiary-bg-color;
+        }
+         @apply bg-common-secondary-bg-color text-sm font-normal text-common-secondary-font-color;
+      }
+    }
+    @apply min-w-[321px] ;
+  }
+  @apply border-[0px] bg-transparent;
+}
+
+.bd-common-ng-select-sm.account-type{
+  &.ng-select .ng-select-container {
+    .ng-input input {
+      @apply text-common-primary-font-color;
+    }
+    @apply h-[41px] min-h-[41px] rounded-md border-common-border-color bg-common-secondary-bg-color;
+  }
+}
+
+.ion-modal{
+  min-height: 100svh !important;
+  min-width: 100svw !important;
+}
+
+.auto-focus-input {  
+  caret-color: #00d47f; /* change to desired color */  
+}
+ 
+.bottom-sheet-modal {
+  --border-radius: 40px !important;
+}

@@ -1,0 +1,16 @@
+<div class="min-w-screen min-h-screen">
+  <!-- <div class="w-full">
+    <app-header></app-header>
+  </div> -->
+  <div class="flex justify-start">
+    <div class="hidden sm:block"><app-sidebar></app-sidebar></div>
+    <!-- <div class="flex-1 h-[calc(100vh-60px)]"> -->
+    <div class="flex-1 h-[100vh]">
+
+      <router-outlet/>
+    </div>
+    <div class="fixed bottom-0 sm:hidden">
+    <app-tab-switch></app-tab-switch>
+  </div>
+  </div>
+</div>

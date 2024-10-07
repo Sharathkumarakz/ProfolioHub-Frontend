@@ -1,0 +1,50 @@
+@use "../../assets/style_varients/dark-theme" as dark;
+@use "../../assets/style_varients/light-theme" as light;
+
+.dark-mode {
+  @include dark.color-mixin();
+}
+
+.light-mode {
+  @include light.color-mixin();
+}
+
+:root {
+  .dark-mode {
+    --common-primary-font-color: #{dark.$common-primary-font-color};
+    --common-secondary-font-color: #{dark.$common-secondary-font-color};
+    --common-tertiary-bg-color: #{dark.$common-tertiary-bg-color};
+    --common-border-color: #{dark.$common-border-color};
+    --common-main-bg-color: #{dark.$common-main-bg-color};
+    --common-secondary-bg-color: #{dark.$common-secondary-bg-color};
+    --common-brand-color-1: #{dark.$common-brand-color-1};
+    --common-brand-color-2: #{dark.$common-brand-color-2};
+    --common-green-color: #{dark.$common-green-color};
+    --common-green-bg-color: #{dark.$common-green-bg-color};
+    --common-blue-color: #{dark.$common-blue-color};
+    --common-blue-bg-color: #{dark.$common-blue-bg-color};
+    --common-red-color: #{dark.$common-red-color};
+    --common-red-bg-color: #{dark.$common-red-bg-color};
+    --common-yellow-color: #{dark.$common-yellow-color};
+    --common-yellow-bg-color: #{dark.$common-yellow-bg-color};
+  }
+
+  .light-mode {
+    --common-primary-font-color: #{light.$common-primary-font-color};
+    --common-secondary-font-color: #{light.$common-secondary-font-color};
+    --common-tertiary-bg-color: #{light.$common-tertiary-bg-color};
+    --common-border-color: #{light.$common-border-color};
+    --common-main-bg-color: #{light.$common-main-bg-color};
+    --common-secondary-bg-color: #{light.$common-secondary-bg-color};
+    --common-brand-color-1: #{light.$common-brand-color-1};
+    --common-brand-color-2: #{light.$common-brand-color-2};
+    --common-green-color: #{light.$common-green-color};
+    --common-green-bg-color: #{light.$common-green-bg-color};
+    --common-blue-color: #{light.$common-blue-color};
+    --common-blue-bg-color: #{light.$common-blue-bg-color};
+    --common-red-color: #{light.$common-red-color};
+    --common-red-bg-color: #{light.$common-red-bg-color};
+    --common-yellow-color: #{light.$common-yellow-color};
+    --common-yellow-bg-color: #{light.$common-yellow-bg-color};
+  }
+}

@@ -1,0 +1,123 @@
+@if (["text", "password", "search", "number"].includes(inputType())) {
+  <div
+  [class]="'relative flex w-full cursor-text items-center justify-between rounded-md px-3 py-1.5 transition-colors duration-150 ' + customClasses()"
+  (click)="inputRef.focus()"
+  tabindex="0"
+  [ngClass]="{
+    'border-2 border-common-border-color hover:border-common-blue-color border-solid focus-within:border-common-blue-color focus-within:outline focus-within:outline-5 focus-within:outline-common-blue-bg-color': hasBoarder(),
+    'h-[45px]': inputType() !== 'search',
+    'h-[39px]': inputType() === 'search',
+    '!border-common-secondary-bg-color bg-common-secondary-bg-color focus-within:!border-common-blue-color': filledBackground() && inputType() === 'search' && hasBoarder(),
+    'bg-common-main-bg-color': !filledBackground(),
+    '!border-common-red-color': control().invalid && control().touched && hasBoarder(),
+    'cursor-not-allowed': inputDisabled,
+    '!rounded-full': roundedCorners(),
+    'auto-focus-input': autofocus()
+  }"
+  [matTooltip]="!disableTooltip() && inputValue ? placeholder() : ''"
+>
+    @if (inputType() === "search") {
+    <span
+      class="block overflow-hidden pr-1.5 text-base text-common-secondary-font-color transition-all duration-200"
+      [ngClass]="{
+        'w-0 opacity-0': inputValue,
+        'w-[20px] opacity-100': !inputValue
+      }"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </span>
+    }
+      <input
+        [ngClass]="inputType() === 'number' ? 'block' : 'hidden'"
+        [type]="
+         (inputType() === 'password' || (inputType() === 'number' && hideText()))  && !passwordVisible ? 'password' : 'text'
+        "
+        #inputRef
+        class="flex-1 bg-transparent text-common-primary-font-color outline-none"
+        style="width: inherit"
+        [placeholder]="animationPlaceholder ?? placeholder()"
+        [(ngModel)]="inputValue"
+        [disabled]="inputDisabled"
+        inputmode="numeric"
+        (keyup)="onKeyUp($event); onChange(inputValue); validateInput(true);"
+        (change)="onChange(inputValue); validateInput(true)"
+        (blur)="onTouch(inputValue); validateInput()"
+        [maxlength]="maxLength() ? maxLength() : ''"
+        (paste)="onPaste($event)"
+        (copy)="onCopy($event)"
+      />
+      <input
+      [type]="
+        (inputType() === 'password' || (inputType() === 'number' && hideText())) && !passwordVisible ? 'password' : 'text'
+      "
+      #inputRef
+      [ngClass]="inputType() === 'number' ? 'hidden' : 'block'"
+      class="flex-1 bg-transparent text-common-primary-font-color outline-none"
+      style="width: inherit"
+      [placeholder]="animationPlaceholder ?? placeholder()"
+      [(ngModel)]="inputValue"
+      [disabled]="inputDisabled"
+      (keyup)="onKeyUp($event); onChange(inputValue); validateInput(true);"
+      (change)="onChange(inputValue); validateInput(true)"
+      (blur)="onTouch(inputValue); validateInput()"
+      [maxlength]="maxLength() ? maxLength() : ''"
+      (paste)="onPaste($event)"
+      (copy)="onCopy($event)"
+    />
+    @if (inputType() === "search") {
+    <span
+      class="block cursor-pointer overflow-hidden text-sm text-common-secondary-font-color transition-all duration-200 hover:text-common-primary-font-color"
+      [ngClass]="{
+        'w-0 opacity-0': !inputValue,
+        'w-[20px] opacity-100': inputValue
+      }"
+      (click)="clearInput()"
+      (keyup)="clearInput()"
+      (keydown)="clearInput()"
+      tabindex="-1"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    } @if (inputType() === "password" || hideText())  {
+       @if(passwordVisible){
+      <fa-icon [icon]="faEyeSlash" class="w-8 flex text-common-secondary-font-color items-center justify-center text-md cursor-pointer"
+      (click)="passwordVisible = !passwordVisible"
+      ></fa-icon>
+    } @else {
+      <fa-icon [icon]="faEye" class="w-8 flex items-center text-common-secondary-font-color justify-center text-md cursor-pointer"
+      (click)="passwordVisible = !passwordVisible"
+      ></fa-icon>
+    } }
+  </div>
+} @else if (inputType() === "otp4digit") {
+  <div class="grid w-full grid-cols-4 gap-4  max-w-[200px]">
+    @for (item of [].constructor(4); let i = $index; track i) {
+    <button
+      class="relative flex h-[45px] cursor-text bg-common-main-bg-color items-center justify-between  border-solid  border-b border-common-primary-font-color px-3 py-1.5 outline-0 transition-colors duration-150 focus-within:border-common-blue-color"
+      (click)="focusOtpInput(i, false)"
+      tabindex="-1"
+      [ngClass]="{
+        '!border-common-red-color': control().invalid && control().touched,
+        'cursor-not-allowed': inputDisabled
+      }"
+    >
+      <input
+        type="text"
+        [id]="'otp' + i"  
+        #otpRef
+        class="w-full flex-1 bg-transparent text-center text-common-primary-font-color outline-none"
+        [(ngModel)]="otp4digits[i]"
+        [disabled]="inputDisabled"
+        (keyup)="otp4OnChange(i, $event)"
+        (change)="onChange(inputValue)"
+        (blur)="onTouch(inputValue)"
+        inputmode="numeric"
+        maxlength="1"
+      />
+    </button>
+    }
+  </div>
+  } @if (control()) {
+  <app-control-message [control]="control()"></app-control-message>
+  }
+  

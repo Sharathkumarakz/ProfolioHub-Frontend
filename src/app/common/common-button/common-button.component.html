@@ -1,0 +1,43 @@
+<button
+  class="group relative flex w-full select-none flex-nowrap items-center justify-center text-nowrap outline-none disabled:!border-transparent disabled:cursor-not-allowed disabled:pointer-events-none"
+  [disabled]="isLoading() || disabled()"
+  (click)="buttonClick()"
+  [type]="'submit'"
+  #buttonRef
+  [ngClass]="
+    buttonType() === 'outline'
+      ? 'flex h-9 items-center justify-center rounded-md border border-common-green-color p-3 text-common-green-color ' +
+        buttonClass()
+      : buttonClass()
+  "
+>
+  @if (prefix() && icon() && !isLoading()) {
+    <i class="{{ iconClass() }} pointer-events-none mr-1">
+    </i>
+  }
+
+  @if (text()) {
+    <span class="text-nowrap">
+      {{ text() }}
+    </span>
+  } @else {
+    <ng-content></ng-content>
+  }
+  @if (
+    !isLoading() &&
+    !prefix() &&
+    (icon() || animation() === "animation-arrow-icon")
+  ) {
+    <i class="pointer-events-none"
+    [ngClass]="animation() === 'animation-arrow-icon'? 'duration-400 -ms-7 opacity-0 transition-all group-hover:m-0 group-hover:opacity-100 fa-solid fa-arrow-right '+ iconClass(): iconClass()"
+    >
+    </i>
+  }
+  @if (isLoading()) {
+    <div class="pl-2">
+    <div class=" animate-spin">
+      <fa-icon [icon]="faSpinner" class="animate-spin fa-spin"></fa-icon>
+    </div>
+  </div>
+  }
+</button>

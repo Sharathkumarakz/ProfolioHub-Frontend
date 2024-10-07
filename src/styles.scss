@@ -1,0 +1,29 @@
+// Tailwind Modules
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Common Modules
+@import "./assets/style_varients/themes";
+@import "./assets/style_varients/font-variables";
+
+// overrides
+@import "./assets/style_varients/overrides";
+
+// Common styles
+@import "./assets/style_varients/common-styles/common-styles";
+
+//ng select styles
+@import "@ng-select/ng-select/themes/default.theme.css";
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

@@ -1,0 +1,19 @@
+@mixin color-mixin() {
+  //=========== App Colors ===========//
+  $common-primary-font-color: #474951 !global;
+  $common-secondary-font-color: #676a7b !global;
+  $common-tertiary-bg-color: #f8f9fa !global;
+  $common-border-color: #d9e6f4 !global;
+  $common-main-bg-color: #ffffff !global;
+  $common-secondary-bg-color: #f6f7fb !global;
+  $common-brand-color-1: #025865 !global;
+  $common-brand-color-2: #00d47f !global;
+  $common-green-color: #2db4c8 !global;
+  $common-green-bg-color: #e5faf3 !global;
+  $common-blue-color: #326bff !global;
+  $common-blue-bg-color: #eef7ff !global;
+  $common-red-color: #e92d2d !global;
+  $common-red-bg-color: #ffeeee !global;
+  $common-yellow-color: #b79905 !global;
+  $common-yellow-bg-color: #fff8f0 !global;
+}
